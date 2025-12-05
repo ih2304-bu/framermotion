@@ -1,16 +1,40 @@
-# React + Vite
+# Framer Motion Swipe Cards
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Tinder-style swipe card app built with React and Framer Motion for my CS-391 Show and Tell presentation.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Swipe cards left or right to dismiss them
+- Cards rotate and show "LIKE" or "NOPE" text as you drag
+- Smooth animations when cards fly off screen
+- Reset button to bring all cards back
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Framer Motion
+- Vite
+- CSS
 
-## Expanding the ESLint configuration
+## How to run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+Then open http://localhost:5173
+
+## Features I'm demonstrating
+
+- **motion components** - turning regular divs into animated elements
+- **useMotionValue & useTransform** - tracking drag position and converting it to rotation/opacity
+- **Drag gestures** - making cards draggable with constraints
+- **AnimatePresence** - exit animations when cards are removed
+- **Variants** - defining animation states
+
+## What I learned
+
+Getting the exit animations to work in the right direction was tricky. Had to use the `custom` prop in AnimatePresence to pass the swipe direction to the exit animation.
+
+Also learned about useTransform which is pretty cool - it maps one value range to another, so dragging the card left/right automatically rotates it.
